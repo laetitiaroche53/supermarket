@@ -1,42 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-       <title>The supermarket</title>
-       <link type="text/css" rel="stylesheet" href="/style.css" media="screen">
-       <script src="/script.js"></script>
-    </head>
 
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The supermarket</title>
+    <link type="text/css" rel="stylesheet" href="./style.css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="./script.js"></script>
 
-    <div class = images> </div>  
+</head>
 
+<body>
 
-    <div class = recette>
-    <h1> The supermarket </h1>
-    <p>
-For the lunch, I would like to do 
-
-        <!-- comment j'insère mon javascript dedans? -->
-    <script language="JavaScript">document.write(recetteName);
-    </script>
-. I need to buy...
-<script language="JavaScript">document.write(ingredients);
-    </script>
-<ul>
- 
-</ul>
-Hurry up, you have just 30 seconds to find all the ingredients !
-    </p>
+    <div class="game">
+            <div class="rowstart"> 
+                <span class = "caddy">
+                    <img src= "./images/caddy.png" alt="caddy" height="60" ></span>
+                </div>
+            <div class="row0">
+        <span class="image0 ingredients-img"> </span>
+        <span class="image1 ingredients-img"> </span>
+        <span class="image2  ingredients-img"> </span>
+             </div>
+             <div class="row1">
+                    <span class="image0  ingredients-img"> </span>
+                    <span class="image1  ingredients-img"> </span>
+                    <span class="image2  ingredients-img"> </span>
+            </div>
+            <div class="row2">
+                    <span class="image0  ingredients-img"> </span>
+                    <span class="image1  ingredients-img"> </span>
+                    <span class="image2  ingredients-img"> </span>
+            </div>
     </div>
 
-    <div class = chronometer> </div>
+    <div class="recette">
+            <h1> The supermarket </h1>
+            <p>
+                For the lunch, I would like to do
 
-    <div class = game>
-        <canvas id="ingredients" width="400" height="800"> </canvas>
-    </div>
-      
-    <div class = button>
-        <button>Start my shopping</button>
-    </div>
+                <br> </br>
+                <!-- comment j'insère mon javascript dedans? -->
+                <span id="recette-name"> </span>
+                <br> </br>
+                I need to buy...
+                <br> </br>
+                Hurry up, you have just 30 seconds to find all the ingredients !
+            </p>
 
-    </body>
+            <div class="button">
+                    <button>Start my shopping</button>
+                </div>
+
+            <div class="chronometer"> </div>
+
+        </div>
+
+
+   
+
+</body>
+
+</html>

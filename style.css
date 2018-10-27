@@ -1,0 +1,44 @@
+.game{
+    margin-top:200px;
+    width:700px;
+    float:left;
+}
+
+.rowstart{
+    margin-left:120px;
+}
+
+.row0{
+    height:150px;
+    width:600px;
+    margin-left:50px;
+}
+
+.row1{
+    height:150px;
+    width:600px;
+    margin-left:50px;
+}
+
+.row2{
+    height:150px;
+    width:600px;
+    margin-left:50px;
+}
+
+.ingredients-img{
+    padding:50px;
+    margin:50px;
+    background-repeat:no-repeat;
+}
+
+.recette{
+    float:right;
+    width:400px;
+    margin-right:100px;
+}
+
+.caddy{
+    position: absolute;
+    margin-top:-150px;
+}
