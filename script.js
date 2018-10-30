@@ -30,7 +30,7 @@ var ingredients = [
 var recettes = [
     {
         name: "An apple pie ",
-        time: [30],
+        time: 30,
         ingredientsBons: [0, 1, 2, 3, 4],
         supermarket: [
             [0, 5, 6],
@@ -42,19 +42,9 @@ var recettes = [
 
 // function startGame(){
 //      var beginGame = document.getElementsByClassName('button');
-//      beginGame.onclick = window.onload();
+//      beginGame.onclick = 
+showGame();
 //  };
-
-// window.onload = function() {
-//     document.getElementById("start-button").onclick = function() {
-//       startGameWay()
-//       startGameGrass()
-//       startGameLine()
-//       drawCar()
-//       obstacle1();
-//       obstacle2();
-//     };
-//    }
 
 
 
@@ -110,9 +100,7 @@ document.onkeydown = function(e) {
     }else{
             $('.game').hide();
             $('.gif').show();
-            // $('.game').image("https://giphy.com/gifs/148funQReeOjAI/html5");
         }
-
     window.onload;
   }
 
