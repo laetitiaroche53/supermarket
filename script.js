@@ -30,7 +30,7 @@ var ingredients = [
 var recettes = [
     {
         name: "An apple pie ",
-        time: 30,
+        timeSeconds: 15,
         ingredientsBons: [0, 1, 2, 3, 4],
         supermarket: [
             [0, 5, 6],
@@ -40,121 +40,107 @@ var recettes = [
     },
 ];
 
-// function startGame(){
-//      var beginGame = document.getElementsByClassName('button');
-//      beginGame.onclick = 
-showGame();
-//  };
-
-
 
 window.onload = function () {
     $('.gif').hide();
-    var btnLeft     = document.getElementById('start');
-    btnLeft.onclick = function(){
-    chronometer.startStopwatch()
-    };
+    var startButton = document.getElementById('start');
+    startButton.onclick = function () {
+
+    chronometer.startWatch();
+
+    document.getElementsByClassName('recette-name').innerHTML = recettes[0].name;
+    var ingredientsName = document.getElementsByClassName("ingredients-name");
+    ingredientsName.innerHTML = recettes[0].ingredientsBons;
+
     var supermarket = recettes[0].supermarket
     for (var i = 0; i < supermarket.length; i++) {
         for (var j = 0; j < supermarket[i].length; j++) {
             var element1id = recettes[0].supermarket[i][j];
             var imgurl = ingredients[element1id].image;
-            var img= $('.row' + i + '>.image' + j);
-            img.height=100;
-            img.width=100;
+            var img = $('.row' + i + '>.image' + j);
+            img.height = 100;
+            img.width = 100;
             img.css("background-image", "url(" + imgurl + ")");
-    }}
+        }
+    }
+};
 };
 
+function loseGame(){
+    $('.game').hide();
+    $('.gif').show();
+    $('.recette .texte').hide();
+    $('.recette .chronometer').hide();
+}
 
-var positionCaddy = {x:-1, y:0};
+var positionCaddy = { x: -1, y: 0 };
 
-document.onkeydown = function(e) {
+document.onkeydown = function (e) {
     switch (e.keyCode) {
-      case 37: $(".caddy").animate({ "left": "-=200px" }); 
-      positionCaddy.y = positionCaddy.y-1;
-      console.log ('left'); 
-      break;
+        case 37: $(".caddy").animate({ "left": "-=200px" });
+            positionCaddy.y = positionCaddy.y - 1;
+            console.log('left');
+            break;
 
-      case 39: $(".caddy").animate({ "left": "+=200px" }); 
-      positionCaddy.y = positionCaddy.y+1;
-      console.log ('right'); 
-      break;
+        case 39: $(".caddy").animate({ "left": "+=200px" });
+            positionCaddy.y = positionCaddy.y + 1;
+            console.log('right');
+            break;
 
-      case 38: $(".caddy").animate({ "top": "-=140px" }); 
-      positionCaddy.x = positionCaddy.x-1;
-      console.log ('up'); 
-      break;
+        case 38: $(".caddy").animate({ "top": "-=140px" });
+            positionCaddy.x = positionCaddy.x - 1;
+            console.log('up');
+            break;
 
-      case 40: $(".caddy").animate({ "top": "+=140px" }); 
-      positionCaddy.x = positionCaddy.x+1;
-      console.log ('down'); 
-      break;
+        case 40: $(".caddy").animate({ "top": "+=140px" });
+            positionCaddy.x = positionCaddy.x + 1;
+            console.log('down');
+            break;
     };
 
     var ingredient = recettes[0].supermarket[positionCaddy.x][positionCaddy.y];
     console.log(ingredient, positionCaddy);
-    if (recettes[0].ingredientsBons.includes(ingredient)){
-        for (var i=0; i<6; i++) {
-        continue;}
-    }else{
-            $('.game').hide();
-            $('.gif').show();
-        }
+    if (!recettes[0].ingredientsBons.includes(ingredient)) {
+        loseGame();
+    }
     window.onload;
-  }
+}
 
 
-  var chronometer = {
+var chronometer = {
     seconds: 0,
     minutes: 0,
-    underTen: function(){
-      if  (chronometer.seconds < 10) {chronometer.seconds = String(this.seconds).padStart(2,"0");
-      }
-      if  (chronometer.minutes < 10) {chronometer.minutes = String(this.minutes).padStart(2,"0");}
+    underTen: function () {
+        if (chronometer.seconds < 10) {
+        chronometer.seconds = String(this.seconds).padStart(2, "0");
+        }
+        if (chronometer.minutes < 10) { chronometer.minutes = String(this.minutes).padStart(2, "0"); }
     },
-    
+
     run: function () {
-      chronometer.underTen();
-   
-      if (chronometer.seconds == 59){
-        chronometer.minutes++;
-        chronometer.seconds = 0;
-      }
-      else { chronometer.seconds++;
-      };
+        chronometer.underTen();
+
+        if (chronometer.seconds == 59) {
+            chronometer.minutes++;
+            chronometer.seconds = 0;
+        }
+        else {
+        chronometer.seconds++;
+        };
+        if (chronometer.seconds == recettes[0].timeSeconds) {
+            loseGame();
+        };    
         document.getElementById("seconds").innerHTML = chronometer.seconds;
         document.getElementById("minutes").innerHTML = chronometer.minutes;
-      },
-    split: function (){
-      let li =  String(chronometer.minutes).padStart(2,"0") + ":" + String(chronometer.seconds).padStart(2,"0") + ":" + String(this.miliseconds).padStart(2,"0");
-      let splitArray = document.getElementById("splits");
-      splitArray.insertAdjacentHTML('beforeend', `<li>${li}</li>`);
-      },
-      reset: function (){ 
-      document.getElementById("seconds").innerHTML = "00";
-      chronometer.seconds = 0;
-      document.getElementById("minutes").innerHTML = "00";
-      chronometer.minutes = 0;
-      document.getElementById("splits").innerHTML = "";
-      },
+    },
     intervalRef: {},
-      startStopwatch: function() {
-        this.intervalRef = setInterval(this.run, 10);
-      },
-      stopStopwatch: function() {
-        clearInterval(chronometer.intervalRef);
-    }
-  };
-  
-//   function endGame(){
-//       if ()
-//   }
+    startWatch: function () {
+        this.intervalRef = setInterval(this.run, 1000);
+    },
+};
 
-  
 
-//   var recetteChoice = document.getElementById("recette-name");
-//   recetteChoice.innerHTML = "an apple pie";
+
 
 // document.getElementsByClassName("recette-name").innerHTML = "an apple pie";
 
@@ -163,48 +149,12 @@ document.onkeydown = function(e) {
 
 // }
 
-//   document.onkeydown {
-//     $( ".rowstart" ).animate({ "left": "+=50px" }, "slow" );
-//   });
 
 // function getRecetteName(){
-//     var recetteChoice = document.getElementById('recette-name');
+//     var recetteChoice = document.getElementsByClassName("recette-name");
 //     return recetteChoice.innerHTML="an apple pie";
 //   }
 
 
 
 
-
-// function randomSelector(recettes){
-//     var keysArr = Object.keys(recette);
-//     var numKeys = keysArr.length;
-//     var rndIndx = Math.floor(Math.random() * numKeys);
-//     return recette[keysArr[rdnIndx]];
-//     console.log(recette[keysArr[rdnIndx]];);
-// };
-
-
-// GIF SUR JQUERY 
-        // jQuery(function($){
-        //     $('#ajax-loading').hide(); // On masque le gif au chargement de la page
-             
-
-        // http://www.finalclap.com/faq/225-jquery-ajax-loading-gif
-        //     $('#ajax-load').click(function(e){
-        //         // Affichage du gif de chargement et envoi requête AJAX
-        //         $('#ajax-loading').show();
-        //         $.get(
-        //             'http://api.geonames.org/citiesJSON',
-        //             {north: 44.1, south: -9.9, east: -22.4, west: 55.2, lang: 'de', username: 'demo'},
-        //             function(data){
-        //                 $('#ajax-loading').hide(); // On masque le gif de chargement quand le serveur a répondu
-        //             }
-        //         );
-        //     });
-        // });
-
-
-//     
-//     //window.open("https://giphy.com/gifs/148funQReeOjAI/html5",
-//    
