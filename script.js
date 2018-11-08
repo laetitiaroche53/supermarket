@@ -12,17 +12,17 @@ var ingredients = [
     { id: 6, name: "rice", image: "./images/rice.png" },
     { id: 7, name: "chicken", image: "./images/chicken.png" },
     { id: 8, name: "milk", image: "./images/milk.png" },
-    // { id: 9, name: "ananas", image: },
-    // { id: 10, name: "cheese", image: },
-    // { id: 11, name: "chocolat", image: },
-    // { id: 12, name: "citron", image: },
-    // { id: 13, name: "concombre", image: },
-    // { id: 14, name: "pain", image: },
-    // { id: 15, name: "pasta", image: },
-    // { id: 16, name: "salad", image: },
-    // { id: 17, name: "tomate", image: },
-    // { id: 18, name: "yahourt", image: },
-    // { id: 19, name: "steack", image: },
+    { id: 9, name: "ananas", image: "./images/ananas.png"},
+    { id: 10, name: "cheese", image: "./images/cheese.png" },
+    { id: 11, name: "chocolat", image: "./images/chocolat.png"},
+    { id: 12, name: "citron", image:"./images/citron.png" },
+    { id: 13, name: "concombre", image:"./images/concombre.png" },
+    { id: 14, name: "pain", image:"./images/pain.png" },
+    { id: 15, name: "pasta", image: "./images/pasta.png"},
+    { id: 16, name: "salad", image: "./images/salad.png"},
+    { id: 17, name: "tomate", image:"./images/tomate.png" },
+    { id: 18, name: "yahourt", image: "./images/yahourt.png"},
+    { id: 19, name: "steack", image:"./images/steack.png" },
 ];
 
 
@@ -30,7 +30,8 @@ var ingredients = [
 var recettes = [
     {
         name: "An apple pie ",
-        timeSeconds: 15,
+        timeMinuts: 0,
+        timeSeconds: 30,
         ingredientsBons: [0, 1, 2, 3, 4],
         supermarket: [
             [0, 5, 6],
@@ -38,19 +39,40 @@ var recettes = [
             [7, 2, 4],
         ],
     },
+    {
+        name: "Burger ",
+        timeMinuts: 0,
+        timeSeconds: 30,
+        ingredientsBons: [14, 10, 16, 19, 17],
+        supermarket: [
+            [9, 10, 14],
+            [17, 16, 11],
+            [12, 19, 15],
+        ],
+    },
 ];
 
 
 window.onload = function () {
-    $('.gif').hide();
+    $('.gif').show();
+    $('.lose').hide();
+    $('.won').hide();
+    $('.caddy').hide();
+
     var startButton = document.getElementById('start');
     startButton.onclick = function () {
 
+    $('.caddy').show();
+    $('.gif').hide();
+
     chronometer.startWatch();
 
-    document.getElementsByClassName('recette-name').innerHTML = recettes[0].name;
-    var ingredientsName = document.getElementsByClassName("ingredients-name");
-    ingredientsName.innerHTML = recettes[0].ingredientsBons;
+    document.getElementById("recette-name").innerHTML = recettes[0].name;
+
+    document.getElementById("ingredients-name").innerHTML = " " + ingredients[0].name + " " +ingredients[1].name + " " + ingredients[2].name + " " + ingredients[3].name + " " + ingredients[4].name
+
+    document.getElementById("time-minutes").innerHTML = recettes[0].timeMinuts;
+    document.getElementById("time-seconds").innerHTML = recettes[0].timeSeconds;
 
     var supermarket = recettes[0].supermarket
     for (var i = 0; i < supermarket.length; i++) {
@@ -68,9 +90,21 @@ window.onload = function () {
 
 function loseGame(){
     $('.game').hide();
-    $('.gif').show();
+    $('.lose').show();
     $('.recette .texte').hide();
     $('.recette .chronometer').hide();
+    $('.won').hide();
+    $('.gif').hide();
+}
+
+function winGame(){
+    $('.won').show();
+    $('.game').hide();
+    $('.lose').hide();
+    $('.recette .texte').hide();
+    $('.recette .chronometer').hide();
+    $('.gif').hide();
+    document.getElementById("caissePlayer").play();
 }
 
 var positionCaddy = { x: -1, y: 0 };
@@ -102,10 +136,21 @@ document.onkeydown = function (e) {
     console.log(ingredient, positionCaddy);
     if (!recettes[0].ingredientsBons.includes(ingredient)) {
         loseGame();
+    } else if (recettes[0].ingredientsBons[4]==(ingredient)) {
+        winGame();
+    } else if (recettes[0].ingredientsBons[0]==(ingredient)) {
+        document.getElementById("bipPlayer").play();
+    } else if (recettes[0].ingredientsBons[1]==(ingredient)) {
+    document.getElementById("bipPlayer").play();
+    } else if (recettes[0].ingredientsBons[2]==(ingredient)) {
+    document.getElementById("bipPlayer").play();
+    } else if (recettes[0].ingredientsBons[3]==(ingredient)) {
+    document.getElementById("bipPlayer").play();
+    } else if (recettes[0].ingredientsBons[4]==(ingredient)) {
+    document.getElementById("bipPlayer").play();
     }
     window.onload;
 }
-
 
 var chronometer = {
     seconds: 0,
@@ -142,7 +187,7 @@ var chronometer = {
 
 
 
-// document.getElementsByClassName("recette-name").innerHTML = "an apple pie";
+
 
 
 // function loseGame(){

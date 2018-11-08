@@ -43,7 +43,7 @@
 
 .recette{
     float:right;
-    width:420px;
+    width:400px;
     margin-right:100px;
 }
 
@@ -67,15 +67,61 @@
     background-color:yellow;
 }
 
-.gif{
+.lose{
     margin-top:50px;
     margin-left:100px;
     width:700px;
     float:left;
 }
 
-.gif p{
+.lose p{
     font-size: 50px;
     font-weight:bold;
     color: red;
 }
+
+
+.won{
+    margin-top:50px;
+    margin-left:100px;
+    width:700px;
+    float:left;
+}
+
+.won p{
+    font-size: 50px;
+    font-weight:bold;
+    color: yellow;
+}
+
+.gif{
+    margin-top:150px;
+    margin-left:100px;
+    width:10px;
+    float:left;
+}
+
+#recette-name{
+    color : red;
+    font-weight:bold;
+    font-size: 20px;
+}
+
+#ingredients-name{
+    color : red;
+    font-weight:bold;  
+    font-size: 20px;
+}
+
+#time-minutes{
+    color : red;
+    font-weight:bold; 
+    font-size: 20px; 
+}
+
+#time-seconds{
+    color : red;
+    font-weight:bold; 
+    font-size: 20px; 
+}
+

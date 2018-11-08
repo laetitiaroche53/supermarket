@@ -14,10 +14,29 @@
 
 <body>
 
-    <div class="gif"> 
+    <div class="lose"> 
         <p> GAME OVER </p>
         <object width="400" height="344" data="https://media.giphy.com/media/JHJlVV3RC5qw0/giphy.gif"></object>
     </div>
+
+    <div class="won"> 
+            <audio id="caissePlayer">
+                    <source src="./sons/caisse1.mp3">              
+                </audio>
+        <p> YOU WON </p>
+        <object width="400" height="344" data="https://media.giphy.com/media/gvjqf274J7Nmg/giphy.gif"></object>
+    </div>
+
+    <div class="gif">
+        <object width="400" height="344" data="https://media.giphy.com/media/GvN6HBvJ1VhQY/giphy.gif"></object>
+    </div>
+
+    <div class="son-ingredient-bon">
+            <audio id="bipPlayer">
+                    <source src="./sons/bip.mp3">              
+                </audio>
+    </div>
+
     <div class="game">
             <div class="rowstart"> 
                 <span class = "caddy">
@@ -45,14 +64,12 @@
             <h1> Supermarket </h1>
 
         <section class = "texte">            
-            <p> For the lunch, I would like to do
+            <p> For the lunch, I would like to do <span id="recette-name">a good meal </span>
             <br> </br>
-            <span class="recette-name"> nom de la recette </span>
+            I need to buy <span id="ingredients-name"> differents ingredients </span>
             <br> </br>
-            I need to buy <span class="ingredients-name">...</span>
-            <br> </br>
-            Hurry up, you have just <span class="time-minutes"> </span> minutes and 
-            <span class="time-seconds"> </span>seconds to find all the ingredients !
+            Hurry up, you have just <span id="time-minutes"> few </span> minutes and 
+            <span id="time-seconds"> few </span> seconds to find all the ingredients !
             </p>
         </section>    
 
