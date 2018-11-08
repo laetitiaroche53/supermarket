@@ -62,8 +62,13 @@ window.onload = function () {
     var startButton = document.getElementById('start');
     startButton.onclick = function () {
 
+    $('.game').show();
     $('.caddy').show();
     $('.gif').hide();
+    $('.won').hide();
+    $('.lose').hide();
+    $('.recette .texte').show();
+    $('.recette .chronometer').show();
 
     chronometer.startWatch();
 
