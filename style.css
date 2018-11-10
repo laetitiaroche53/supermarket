@@ -78,7 +78,7 @@
 .lose{
     margin-top:50px;
     margin-left:100px;
-    width:700px;
+    width:500px;
     float:left;
 }
 
@@ -92,7 +92,7 @@
 .won{
     margin-top:50px;
     margin-left:100px;
-    width:700px;
+    width:500px;
     float:left;
 }
 
@@ -106,7 +106,7 @@
 .gif{
     margin-top:150px;
     margin-left:100px;
-    width:10px;
+    width:6px;
     float:left;
 }
 
