@@ -1,10 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Passion+One');
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
+
+
 *{
     font-family:Calibri, "Californian FB", serif;
 }
 
+
 .recette h1{
     margin-top : 150px;
     font-size: 60px;
+    font-family: 'Pacifico', cursive;
 }
 
 .game{
@@ -75,9 +83,9 @@
 }
 
 .lose p{
-    font-size: 50px;
-    font-weight:bold;
+    font-size: 60px;
     color: red;
+    font-family: 'Passion One', cursive;
 }
 
 
@@ -89,9 +97,10 @@
 }
 
 .won p{
-    font-size: 50px;
+    font-size: 60px;
     font-weight:bold;
-    color: yellow;
+    color: #fed803;
+    font-family: 'Passion One', cursive;
 }
 
 .gif{
@@ -125,8 +134,9 @@
     font-size: 20px; 
 }
 
-.chronometer{
-    font-weight:bold; 
-    font-size: 20px; 
+.chronometer{ 
+    font-size: 30px; 
     border:black;
+    font-family: 'Audiowide', cursive;
+    font-weight:bold;
 }
