@@ -31,7 +31,7 @@ var recettes = [
     {
         name: "An apple pie ",
         timeMinuts: 0,
-        timeSeconds: 30,
+        timeSeconds: 50,
         ingredientsBons: [0, 1, 2, 3, 4],
         supermarket: [
             [0, 5, 6],
@@ -42,7 +42,7 @@ var recettes = [
     {
         name: "Burger ",
         timeMinuts: 0,
-        timeSeconds: 30,
+        timeSeconds: 50,
         ingredientsBons: [14, 10, 16, 19, 17],
         supermarket: [
             [9, 10, 14],
@@ -71,6 +71,7 @@ window.onload = function () {
     $('.recette .chronometer').show();
 
     chronometer.startWatch();
+    chronometer.reset();
 
     document.getElementById("recette-name").innerHTML = recettes[0].name;
 
@@ -100,6 +101,7 @@ function loseGame(){
     $('.recette .chronometer').hide();
     $('.won').hide();
     $('.gif').hide();
+    document.getElementById("perduPlayer").play();
 }
 
 function winGame(){
@@ -183,6 +185,14 @@ var chronometer = {
         document.getElementById("seconds").innerHTML = chronometer.seconds;
         document.getElementById("minutes").innerHTML = chronometer.minutes;
     },
+
+    reset: function (){ 
+        document.getElementById("seconds").innerHTML = "00";
+        chronometer.seconds = 0;
+        document.getElementById("minutes").innerHTML = "00";
+        chronometer.minutes = 0;
+        },
+
     intervalRef: {},
     startWatch: function () {
         this.intervalRef = setInterval(this.run, 1000);
@@ -193,17 +203,6 @@ var chronometer = {
 
 
 
-
-
-// function loseGame(){
-
-// }
-
-
-// function getRecetteName(){
-//     var recetteChoice = document.getElementsByClassName("recette-name");
-//     return recetteChoice.innerHTML="an apple pie";
-//   }
 
 
 

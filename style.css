@@ -125,3 +125,8 @@
     font-size: 20px; 
 }
 
+.chronometer{
+    font-weight:bold; 
+    font-size: 20px; 
+    border:black;
+}
