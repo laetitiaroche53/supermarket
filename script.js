@@ -1,7 +1,7 @@
 
 //Cacher le gif au démarrage
 $('.gif').hide();
-
+var positionCaddy;
 var ingredients = [
     { id: 0, name: "Flour", image: "./images/flour.png" },
     { id: 1, name: "Sugar", image: "./images/sugar.png" },
@@ -69,9 +69,10 @@ window.onload = function () {
     $('.lose').hide();
     $('.recette .texte').show();
     $('.recette .chronometer').show();
-
-    chronometer.startWatch();
+    
     chronometer.reset();
+    chronometer.startWatch();
+    
 
     document.getElementById("recette-name").innerHTML = recettes[0].name;
 
@@ -79,6 +80,10 @@ window.onload = function () {
 
     document.getElementById("time-minutes").innerHTML = recettes[0].timeMinuts;
     document.getElementById("time-seconds").innerHTML = recettes[0].timeSeconds;
+    
+    positionCaddy = { x: -1, y: 0 };
+    $('.caddy').top = '0px';
+    $('.caddy').left = '0px';
 
     var supermarket = recettes[0].supermarket
     for (var i = 0; i < supermarket.length; i++) {
@@ -114,7 +119,7 @@ function winGame(){
     document.getElementById("caissePlayer").play();
 }
 
-var positionCaddy = { x: -1, y: 0 };
+positionCaddy = { x: -1, y: 0 };
 
 document.onkeydown = function (e) {
     switch (e.keyCode) {
@@ -191,6 +196,7 @@ var chronometer = {
         chronometer.seconds = 0;
         document.getElementById("minutes").innerHTML = "00";
         chronometer.minutes = 0;
+        clearInterval(this.intervalRef);
         },
 
     intervalRef: {},
